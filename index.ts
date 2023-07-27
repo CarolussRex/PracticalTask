@@ -3,7 +3,10 @@ import express, {
 } from 'express';
 import ticketRoute from './routes/ticketRoute';
 
-const PORT = 2400;
+import dotenv from 'dotenv';
+dotenv.config();
+
+const PORT = process.env.BASE_URL;
 
 const app: Express = express();
 
@@ -13,7 +16,7 @@ app.use("/ticket", ticketRoute);
 
 const startApp = () => {
     try {
-        app.listen(PORT, () => console.log(`server started on port ${PORT}`));
+        app.listen(PORT , () => console.log(`server started on port ${PORT}`));
     } catch (e) {
         console.log(e);
     }

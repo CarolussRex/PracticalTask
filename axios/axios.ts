@@ -1,7 +1,9 @@
 import axios from "axios";
+import dotenv from 'dotenv';
+dotenv.config();
 
 const axiosInstance = axios.create({
-    baseURL: "https://my.laphil.com/en/rest-proxy/TXN/"
+    baseURL: process.env.BASE_URL
 });
 
 export default axiosInstance
